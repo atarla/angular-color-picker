@@ -1,0 +1,18 @@
+<div *ngIf="WelcomeMessage;then thenBlock; else elseBlock" xmlns=""></div>
+<ng-template #thenBlock><h2>Welcome {{parentData}} to {{siteUrl}}</h2></ng-template>
+<ng-template #elseBlock><h2>No welcome message for you.</h2></ng-template>
+<button class="mat-raised-button mat-primary" (click)="onClick($event)">Greet</button>
+{{greeting}} <br/>
+<input #myInput [(ngModel)]="u_name" type="text" placeholder="Enter username"/>    {{u_name}}
+<button (click)="logMessage(myInput.value)">Log</button>
+<!--<img src="../../assets/lovely-teddy-bear-svgrepo-com.svg" alt="iae">-->
+<div #teddyDiv [style.width.px]="200" style="float: right" >
+  <object #teddy data="../../assets/lovely-teddy-bear-svgrepo-com.svg" type="image/svg+xml" ></object>
+</div>
+
+<span [style.color]="color"
+      [cpPosition]="'bottom'"
+      [cpPositionOffset]="'50%'"
+      [cpPositionRelativeToArrow]="true"
+      [(colorPicker)]="color">Click here to choose Teddy's color and click fill!</span>
+<button (click)="fillTeddy(teddy, color)"> fill</button>
